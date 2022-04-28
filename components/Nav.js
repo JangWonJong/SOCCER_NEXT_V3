@@ -45,9 +45,9 @@ export function Nav(){
 
   const handleCloseUserMenu = (value) => {
     switch(value) {
-      case '회원가입':  window.location.href='/user/Register' 
+      case '회원가입':  window.location.href='/auth/register' 
                       break;
-      case '로그인':  window.location.href='/user/Login' 
+      case '로그인':  window.location.href='/auth/login' 
                       break;
       default: window.location.href='/'
                       break;
@@ -97,9 +97,9 @@ export function Nav(){
   const handleAuth= (value) => { 
     alert('handleAuth '+value)
     switch(value){
-      case '회원가입': window.location.href='/user/Regeister'
+      case '회원가입': window.location.href='/auth/register'
       break;
-      case '로그인': window.location.href='/user/Login'
+      case '로그인': window.location.href='/auth/login'
       break;
       default: window.location.href='/'
       break;
@@ -107,7 +107,7 @@ export function Nav(){
   }
 
   return (
-    <AppBar position="static" style={{marginBottom:"70px"}}>
+    <AppBar position="static" style={{marginBottom:"20px"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -123,8 +123,9 @@ export function Nav(){
                 },
               }}
             >
-              <HomeIcon />
-              <HomeIcon color="primary" />
+              <a href='/'>
+              <HomeIcon sx={{ my: 2, color: 'white', display: 'block' }}/>
+              </a>
             </Box>
           </Typography>
 

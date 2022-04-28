@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Head from 'next/head';
 const theme = createTheme();
 
-const UserJoin = ({ onSubmit, onchange, form }) =>{
+export function Register({onChange, onSubmit}){
 
   return (
     <ThemeProvider theme={theme}>
@@ -38,8 +38,8 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
           <Typography component="h1" variant="h5">
             회원가입
           </Typography>
-          <form onSubmit={onSubmit}>
-          <Box component="form" noValidate  sx={{ mt: 3 }}>
+         
+          <Box component="form" noValidate  sx={{ mt: 3 }} onSubmit={onSubmit} >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6} >
                 <TextField
@@ -50,8 +50,8 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   id="userid"
                   label="사용자 ID"
                   autoFocus
-                  onChange={onchange}
-                  value = {form.userid}
+                  onChange={onChange}
+                  
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -62,8 +62,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   label="이름"
                   name="name"
                   autoComplete="family-name"
-                  onChange={onchange}
-                  value = {form.name}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -74,8 +73,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   label="Email Address"
                   name="email"
                   autoComplete="email"
-                  onChange={onchange}
-                  value = {form.email}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -86,8 +84,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   label="Password"
                   type="password"
                   id="password"
-                  onChange={onchange}
-                  value = {form.password}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -99,8 +96,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   type="phone"
                   id="phone"
                   autoComplete="new-password"
-                  onChange={onchange}
-                  value = {form.phone}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -111,8 +107,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                   label="생년월일"
                   type="birth"
                   id="birth"
-                  onChange={onchange}
-                  value = {form.birth}
+                  onChange={onChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -123,8 +118,7 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
                 label="주소"
                 type="adress"
                 id="adress"
-                onChange={onchange}
-                value = {form.adress}
+                onChange={onChange}
               />
             </Grid>
               <Grid item xs={12}>
@@ -144,17 +138,16 @@ const UserJoin = ({ onSubmit, onchange, form }) =>{
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/user/userLogin" variant="body2">
+                <Link href="/auth/login" variant="body2">
                   로그인 화면으로 전환
                 </Link>
               </Grid>
             </Grid>
           </Box>
-          </form>
+          
         </Box>
       </Container>
     </ThemeProvider>
   );
 }
 
-export default UserJoin

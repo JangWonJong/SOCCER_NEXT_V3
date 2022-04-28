@@ -80,7 +80,6 @@ export function Nav(){
   const boardUrls = ["/board/write","/board/list","/board/modifyArticle","/board/removeArticle"]
   const boardSubTitle = ["글등록","글목록","글수정","글삭제"]
   const handleClick = (value) => { 
-    alert(' >>> '+value)
     switch(value){
       case 'counter': window.location.href='/basic/counter'
       break;
@@ -95,7 +94,6 @@ export function Nav(){
     }
   }
   const handleAuth= (value) => { 
-    alert('handleAuth '+value)
     switch(value){
       case '회원가입': window.location.href='/auth/register'
       break;

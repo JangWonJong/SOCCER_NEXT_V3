@@ -17,13 +17,19 @@ const initialState = {
     }
 }
 
-const USER_REGISTER_REQUEST = 'auth/USER_REGISTER_REQUEST'
+const USER_REGISTER_REQUEST = 'user/USER_REGISTER_REQUEST'
 const USER_REGISTER_SUCCESS = 'auth/USER_REGISTER_SUCCESS'
 const USER_REGISTER_FAILURE = 'auth/USER_REGISTER_FAIL'
 
+const userRegisterApi = payload => axios.post(
+    `${SERVER}/user/join`,
+            payload,
+            {headers}
+)
 export const userRegister = user => (
     {type: USER_REGISTER_REQUEST, payload: user}
 )
+
 
 function* watchUserRegister(){
     yield takeLatest(USER_REGISTER_REQUEST, userRegisterSaga)
@@ -39,11 +45,7 @@ function* userRegisterSaga(){
     console.log('Recent Value')
 }
 
-const userRegisterApi = payload => axios.post(
-    `${SERVER}/user/join`,
-            payload,
-            {headers}
-)
+
 
 
 

@@ -1,5 +1,5 @@
 import { Register } from "@/components/auth/Register"
-import { userRegister } from "@/modules/auth/user"
+import { registerRequest, unregisterRequest } from "@/modules/auth/register"
 import { connect } from "react-redux"
 import React,{useState} from 'react'
 import { useDispatch } from "react-redux"
@@ -12,8 +12,7 @@ const RegisterPage =()=> {
     const onSubmit = e => {
         e.preventDefault()
         alert('userinfo' +JSON.stringify(user))
-        dispatch(userRegister(user))
-        window.location.href = './login'
+        dispatch(registerRequest(user))
     }
     const onChange = e =>{
         e.preventDefault()
@@ -25,12 +24,6 @@ const RegisterPage =()=> {
     )
 }
 
-export default connect(
-    state => ({
-        user: state.user
-        
-    }),
-    {
-        userRegister
-    }
-)(RegisterPage)
+const mapStateToProps = state => ({isRegistered: state.register.isRegistered})
+const registerActions = {registerRequest, unregisterRequest}
+export default connect(mapStateToProps, registerActions)(RegisterPage)

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { increaseAsync, decreaseAsync } from '@/modules/basic/counter';
+import { increaseAsync, decreaseAsync, decrease, increase } from '@/modules/basic/counter';
 import {Counter} from '@/components/basic/Counter';
 
 const CounterPage = ({ number, increaseAsync, decreaseAsync }) => {
@@ -13,12 +13,12 @@ const CounterPage = ({ number, increaseAsync, decreaseAsync }) => {
   );
 };
 
+const mapStateToProps = state => ({number: state.counter})
+const registerActions = {
+  increase,
+  decrease
+}
+
 export default connect(
-  state => ({
-    number: state.counter
-  }),
-  {
-    increaseAsync,
-    decreaseAsync
-  }
+  mapStateToProps, registerActions
 )(CounterPage);

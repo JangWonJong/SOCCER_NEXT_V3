@@ -189,7 +189,8 @@ const SubMenu = (props) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  return <><Button
+  return <>
+      <Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
